@@ -1,11 +1,15 @@
 import './index.css';
+import Nav from './components/Nav';
 import Pages from './pages/Pages';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
     <div className='App'>
-      <h1>Recipe App</h1>
-      <Pages />
+      <BrowserRouter>
+        <Nav />
+        <Pages />
+      </BrowserRouter>
     </div>
   );
 }
