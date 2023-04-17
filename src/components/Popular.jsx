@@ -72,6 +72,8 @@ const Card = styled.div`
   overflow: hidden;
   cursor: pointer;
   background: black;
+  filter: saturate(120%);
+  transition: 350ms ease;
 
   img {
     border-radius: 2px;
@@ -80,6 +82,18 @@ const Card = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: 350ms ease;
+  }
+
+  :hover,
+  :focus-visible {
+    filter: saturate(140%);
+
+    img {
+      width: 105%;
+      height: 105%;
+      transform: translate(-9px);
+    }
   }
 
   p {
@@ -106,7 +120,7 @@ const Gradient = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgb(0 0 0 / 0.5), rgb(0 0 0 / 0));
+  background: linear-gradient(rgb(0 0 0 / 0.2), rgb(0 0 0 / 0));
 `;
 
 export default Popular;
