@@ -85,8 +85,8 @@ const Card = styled.div`
     transition: 350ms ease;
   }
 
-  :hover,
-  :focus-visible {
+  &:hover,
+  &:focus-visible {
     filter: saturate(140%);
 
     img {

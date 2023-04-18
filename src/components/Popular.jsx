@@ -71,7 +71,6 @@ const Card = styled.div`
   border-radius: 2px;
   overflow: hidden;
   cursor: pointer;
-  background: black;
   filter: saturate(120%);
   transition: 350ms ease;
 

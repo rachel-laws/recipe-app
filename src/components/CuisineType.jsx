@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 
 function CuisineType() {
   return (
-    <Wrapper className='cuisines'>
-      <List className='cuisineCategories'>
+    <Wrapper>
+      <List>
         <NavLink to={'/cuisines/Italian'}>Italian</NavLink>
         <NavLink to={'/cuisines/American'}>American</NavLink>
         <NavLink to={'/cuisines/Southern'}>Southern</NavLink>
