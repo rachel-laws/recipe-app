@@ -31,7 +31,7 @@ const Form = styled.form`
   position: relative;
   margin: auto;
   margin-right: 4.3rem;
-  padding: 1.5rem 0.45rem 0.5rem;
+  padding: 1.5rem 0.5rem 0.5rem;
   width: 15rem;
 
   input {
@@ -41,7 +41,7 @@ const Form = styled.form`
     font-weight: 500;
     font-size: 1rem;
     height: 1.3rem;
-    padding: 1rem 3rem;
+    padding: 1rem 1.5rem 1rem 2.2rem;
     border-radius: 1rem;
     outline-color: #e77100;
   }
