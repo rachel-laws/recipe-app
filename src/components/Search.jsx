@@ -23,24 +23,25 @@ function Search() {
         name='searchRecipe'
         id='searchRecipe'
       />
+      <p>Search recipes by keyword</p>
     </Form>
   );
 }
 
 const Form = styled.form`
   position: relative;
-  margin: auto;
-  margin-right: 4.3rem;
-  padding: 1.5rem 0.5rem 0.5rem;
-  width: 15rem;
+  margin-inline: auto 0.5rem;
+  margin-bottom: 0.5rem;
+  align-self: flex-end;
 
   input {
     border: none;
     background: #ececec;
     font-family: inherit;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 1rem;
-    height: 1.3rem;
+    height: 2rem;
+    width: 18rem;
     padding: 1rem 1.5rem 1rem 2.2rem;
     border-radius: 1rem;
     outline-color: #e77100;
@@ -48,9 +49,18 @@ const Form = styled.form`
 
   svg {
     position: absolute;
-    top: 50%;
-    left: 8%;
+    top: 26%;
+    left: 4%;
     color: #e77100;
+  }
+
+  p {
+    font-size: 0.8rem;
+    position: absolute;
+    right: 0.5rem;
+    margin-top: 0.1rem;
+    font-style: italic;
+    color: gray;
   }
 `;
 

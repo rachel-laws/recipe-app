@@ -29,6 +29,8 @@ function Nav() {
 
 const Wrapper = styled.div`
   display: flex;
+  align-items: center;
+  margin-top: -0.2rem;
 `;
 
 const Title = styled.div`
@@ -69,8 +71,8 @@ const Header = styled.header`
 const NavBar = styled.nav`
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 0rem;
+  gap: 1rem;
+  padding-block: 0rem 0.5rem;
 `;
 
 const StyledLink = styled(NavLink)`
