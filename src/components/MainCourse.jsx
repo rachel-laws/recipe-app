@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
+import { Link } from 'react-router-dom';
 
 function MainCourse() {
   const [mainCourse, setMainCourse] = useState([]);
@@ -43,9 +44,11 @@ function MainCourse() {
             return (
               <SplideSlide key={recipe.id}>
                 <Card>
-                  <p>{recipe.title}</p>
-                  <img src={recipe.image} alt={recipe.title}></img>
-                  <Gradient></Gradient>
+                  <Link to={'/recipes/' + recipe.id}>
+                    <p>{recipe.title}</p>
+                    <img src={recipe.image} alt={recipe.title}></img>
+                    <Gradient></Gradient>
+                  </Link>
                 </Card>
               </SplideSlide>
             );

@@ -1,22 +1,25 @@
 import { NavLink } from 'react-router-dom';
 import { GiCook } from 'react-icons/gi';
 import styled from 'styled-components';
+import Search from './Search';
 
 function Nav() {
   return (
     <Header>
-      <Title>
-        <GiCook />
-        <h1>
-          Meal<span>Master</span>
-        </h1>
-      </Title>
+      <Wrapper>
+        <Title>
+          <GiCook></GiCook>
+          <h1>
+            Meal<span>Master</span>
+          </h1>
+        </Title>
+        <Search />
+      </Wrapper>
       <NavBar>
         <StyledLink to={'/'}>Home</StyledLink>
         <StyledLink>Meals</StyledLink>
         <StyledLink to={'/cuisines'}>Cuisines</StyledLink>
         <StyledLink>Diets</StyledLink>
-        <StyledLink>Ingredients</StyledLink>
         <StyledLink>Meal Plan</StyledLink>
         {/* Adds class of active */}
       </NavBar>
@@ -24,10 +27,14 @@ function Nav() {
   );
 }
 
+const Wrapper = styled.div`
+  display: flex;
+`;
+
 const Title = styled.div`
   display: flex;
   align-items: center;
-  padding: 1.5rem 0.45rem 0.5rem;
+  padding: 1.5rem 0.15rem 0.5rem;
 
   h1 {
     font-size: 1.7rem;
@@ -63,7 +70,6 @@ const NavBar = styled.nav`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 0.5rem 0rem;
 `;
 
