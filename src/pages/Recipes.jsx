@@ -6,6 +6,7 @@ function Recipes() {
   let params = useParams();
   const [details, setDetails] = useState({});
   const [activeTab, setActiveTab] = useState('instructions');
+  console.log(details);
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -21,12 +22,24 @@ function Recipes() {
 
   return (
     <Wrapper>
-      <div>
-        <h2>{details.title}</h2>
+      <h2>{details.title}</h2>
+      <Container>
         <img src={details.image} alt='' />
-      </div>
-      <Info>
         <div>
+          <p>{`Ready in ${details.readyInMinutes} minutes`}</p>
+          <p>{`Makes ${
+            details.servings > 1
+              ? `${details.servings} servings`
+              : `${details.servings} serving`
+          } `}</p>
+          <p>{details.vegetarian === false ? '' : 'Vegetarian'}</p>
+          <p>{details.vegan === false ? '' : 'Vegan'}</p>
+          <p>{details.glutenFree === false ? '' : 'Gluten Free'}</p>
+          <p>{details.dairyFree === false ? '' : 'Dairy Free'}</p>
+        </div>
+      </Container>
+      <Info>
+        <Buttons>
           <Button
             className={activeTab === 'instructions' ? 'active' : ''}
             onClick={() => {
@@ -41,7 +54,7 @@ function Recipes() {
             }}>
             Ingredients
           </Button>
-        </div>
+        </Buttons>
         {activeTab === 'instructions' && (
           <div>
             <p dangerouslySetInnerHTML={{ __html: details.summary }}></p>
@@ -61,10 +74,17 @@ function Recipes() {
 }
 
 const Wrapper = styled.div`
-  margin-top: 9rem;
-  margin-bottom: 5rem;
+  margin-block: 9rem 5rem;
+  margin-inline: 0.5rem;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: 2rem;
+
+  a {
+    text-decoration: underline;
+  }
 
   .active {
     background: #313131;
@@ -72,7 +92,13 @@ const Wrapper = styled.div`
   }
 
   h2 {
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  p:not(ol) {
+    line-height: 2rem;
+    text-indent: 2rem;
   }
 
   li {
@@ -80,14 +106,63 @@ const Wrapper = styled.div`
     line-height: 2.5rem;
   }
 
-  ul {
-    margin-top: 2rem;
+  p + p {
+    margin-top: 1rem;
+  }
+
+  ol {
+    margin-top: 1rem;
+    text-indent: 0rem;
+
+    li::marker {
+      color: #e77100;
+    }
   }
 
   img {
     border-radius: 2px;
     filter: saturate(120%);
+    object-fit: cover;
+    width: 100%;
+    max-width: 35rem;
   }
+`;
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: 100% 30%;
+
+  p {
+    width: 13rem;
+    margin: 0.5rem 0.75rem;
+    font-weight: 500;
+    text-indent: 0rem !important;
+    line-height: 1rem !important;
+  }
+
+  @media all and (max-width: 1000px) {
+    grid-template-columns: 100%;
+
+    p {
+      margin: 1rem 1px;
+      display: inline;
+      margin-right: 1.5rem;
+    }
+  }
+`;
+
+const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+`;
+
+const Buttons = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 `;
 
 const Button = styled.button`
@@ -99,16 +174,9 @@ const Button = styled.button`
   font-size: 1rem;
   font-family: inherit;
   border: 2px solid #313131;
-  margin-right: 2rem;
   font-weight: 600;
   cursor: pointer;
   transition: 250ms ease;
-`;
-
-const Info = styled.div`
-  margin-top: 3.85rem;
-  margin-left: 3rem;
-  display: flex;
 `;
 
 export default Recipes;
