@@ -35,6 +35,10 @@ a {
   height: 2.1rem !important;
 }
 
-.home {
+.home, .diet {
   margin-top: 9rem;
+}
+
+.active {
+  color: #bb5a00;
 }

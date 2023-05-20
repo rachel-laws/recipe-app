@@ -4,35 +4,34 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Link } from 'react-router-dom';
 
-function MainCourse() {
-  const [mainCourse, setMainCourse] = useState([]);
+function Beverage() {
+  const [beverage, setBeverage] = useState([]);
 
   useEffect(() => {
-    getMainCourse();
+    getBeverage();
   }, []);
 
-  const getMainCourse = async () => {
-    const checkStorage = localStorage.getItem('mainCourse');
+  const getBeverage = async () => {
+    const checkStorage = localStorage.getItem('beverage');
 
     if (checkStorage) {
-      setMainCourse(JSON.parse(checkStorage));
+      setBeverage(JSON.parse(checkStorage));
     } else {
       //
       const api = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=maincourse`
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=beverage`
       );
       const data = await api.json();
 
-      localStorage.setItem('mainCourse', JSON.stringify(data.recipes));
-      setMainCourse(data.recipes);
+      localStorage.setItem('beverage', JSON.stringify(data.recipes));
+      setBeverage(data.recipes);
       console.log(data.recipes);
     }
   };
-
   return (
     <div>
       <Wrapper>
-        <h3>Main Course</h3>
+        <h3>Beverages</h3>
         <Splide
           options={{
             perPage: 4,
@@ -40,7 +39,7 @@ function MainCourse() {
             pagination: false,
             gap: '1rem',
           }}>
-          {mainCourse.map(recipe => {
+          {beverage.map(recipe => {
             return (
               <SplideSlide key={recipe.id}>
                 <Card>
@@ -88,8 +87,8 @@ const Card = styled.div`
     transition: 350ms ease;
   }
 
-  :hover,
-  :focus-visible {
+  &:hover,
+  &:focus-visible {
     filter: saturate(140%);
 
     img {
@@ -126,4 +125,4 @@ const Gradient = styled.div`
   background: linear-gradient(rgb(0 0 0 / 0.2), rgb(0 0 0 / 0));
 `;
 
-export default MainCourse;
+export default Beverage;

@@ -5,6 +5,7 @@ import SearchResults from './SearchResults';
 import Recipes from './Recipes';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import Diets from './Diets';
 
 function Pages() {
   const location = useLocation();
@@ -12,6 +13,7 @@ function Pages() {
     <AnimatePresence mode='wait'>
       <Routes Location={location} key={location.pathname}>
         <Route path='/' element={<Home />} />
+        <Route path='/diets' element={<Diets />} />
         <Route path='/cuisines/:type' element={<Cuisines />} />
         <Route path='/searchresults/:search' element={<SearchResults />} />
         <Route path='/recipes/:name' element={<Recipes />} />

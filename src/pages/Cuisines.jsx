@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link, useParams } from 'react-router-dom';
+import CuisineType from '../components/CuisineType';
 
 function Cuisines() {
   const [cuisine, setCuisine] = useState([]);
@@ -34,6 +35,7 @@ function Cuisines() {
           );
         })}
       </Grid>
+      <CuisineType />
     </Wrapper>
   );
 }

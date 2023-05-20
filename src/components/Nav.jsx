@@ -17,10 +17,8 @@ function Nav() {
       </Wrapper>
       <NavBar>
         <StyledLink to={'/'}>Home</StyledLink>
-        <StyledLink>Meals</StyledLink>
         <StyledLink to={'/cuisines'}>Cuisines</StyledLink>
-        <StyledLink>Diets</StyledLink>
-        <StyledLink>Meal Plan</StyledLink>
+        <StyledLink to={'/diets'}>Diets</StyledLink>
         {/* Adds class of active */}
       </NavBar>
     </Header>
@@ -65,13 +63,14 @@ const Header = styled.header`
   width: 100vw;
   padding-inline: 10% 11%;
   background: #fff;
-  box-shadow: 0 0 10px rgb(0 0 0 / 0.5);
+  box-shadow: 0 0 10px rgb(0 0 0 / 0.2);
 `;
 
 const NavBar = styled.nav`
   width: 100%;
   display: flex;
   gap: 1rem;
+  margin-top: 1rem;
   padding-block: 0rem 0.5rem;
 `;
 
